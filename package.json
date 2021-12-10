@@ -2,25 +2,17 @@
   "name": "tauri-app",
   "version": "0.1.0",
   "private": true,
+  "main": "./dist/index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^12.20.37",
-    "@types/react": "^17.0.35",
-    "@types/react-dom": "^17.0.11",
+    "@tauri-apps/api": "^1.0.0-beta.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "watch": "webpack --watch -c webpack.config.js",
+    "serv": "webpack serve  --hot true -c webpack.config.js --static ./dist",
+    "dev": "concurrently \"yarn tauri dev\" \"yarn serv\" "
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +31,32 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.2",
+    "@tauri-apps/cli": "^1.0.0-beta.10",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.20.37",
+    "@types/react": "^17.0.35",
+    "@types/react-dom": "^17.0.11",
+    "concurrently": "^6.4.0",
+    "css-loader": "^6.5.1",
+    "esbuild-loader": "^2.16.0",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "react-refresh": "^0.11.0",
+    "react-scripts": "4.0.3",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^2.2.19",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
   }
 }
